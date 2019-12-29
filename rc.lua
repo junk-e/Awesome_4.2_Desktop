@@ -46,7 +46,7 @@ local editor   = os.getenv("EDITOR") or "vi"
 local editor_cmd = terminal .. " -e " .. editor
 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init("~/.config/awesome/themes/default/theme.lua")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
