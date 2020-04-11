@@ -481,6 +481,11 @@ awful.rules.rules = {
     { rule = { class = "Google-chrome" },
         properties = { screen = 1, tag = awful.screen.focused().tags[2] }
     },
+
+    -- Set Inkscape to always map on the tag 3 on screen 1.
+    { rule = { class = "Inkscape" },
+        properties = { screen = 1, tag = awful.screen.focused().tags[3] }
+    },
 }
 -- }}}
 
