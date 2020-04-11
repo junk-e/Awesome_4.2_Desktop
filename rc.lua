@@ -40,11 +40,11 @@ end
 -- }}}
 
 -- {{{ Variable definitions
-local theme = "junk-e"
+local theme      = "junk-e"
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), theme)
-local modkey = "Mod4"
-local terminal = "termite"
-local editor   = os.getenv("EDITOR") or "vi"
+local modkey     = "Mod4"
+local terminal   = "termite"
+local editor     = os.getenv("EDITOR") or "vi"
 local editor_cmd = terminal .. " -e " .. editor
 
 -- Themes define colours, icons, font and wallpapers.
