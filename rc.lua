@@ -4,6 +4,8 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+-- Widget, layout and utilities library
+local lain = require("lain")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -40,13 +42,15 @@ end
 -- }}}
 
 -- {{{ Variable definitions
-local modkey = "Mod4"
-local terminal = "termite"
-local editor   = os.getenv("EDITOR") or "vi"
+local theme      = "junk-e"
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), theme)
+local modkey     = "Mod4"
+local terminal   = "termite"
+local editor     = os.getenv("EDITOR") or "vi"
 local editor_cmd = terminal .. " -e " .. editor
 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(theme_path)
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
