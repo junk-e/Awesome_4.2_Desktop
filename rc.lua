@@ -40,20 +40,13 @@ end
 -- }}}
 
 -- {{{ Variable definitions
+local modkey = "Mod4"
+local terminal = "termite"
+local editor   = os.getenv("EDITOR") or "vi"
+local editor_cmd = terminal .. " -e " .. editor
+
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-
--- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv("EDITOR") or "nano"
-editor_cmd = terminal .. " -e " .. editor
-
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -481,12 +474,18 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    -- Set Google-chrome to always map on the tag 2 on screen 1.
+    { rule = { class = "Google-chrome" },
+        properties = { screen = 1, tag = awful.screen.focused().tags[2] }
+    },
+
+    -- Set Inkscape to always map on the tag 3 on screen 1.
+    { rule = { class = "Inkscape" },
+        properties = { screen = 1, tag = awful.screen.focused().tags[3] }
+    },
 }
 -- }}}
 
